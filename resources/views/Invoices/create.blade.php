@@ -7,70 +7,70 @@
         @csrf
         @method('PUT')
         <div class="mb-3">
-            <label for="title" class="form-label">Number</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('number')}}">
+            <label for="number" class="form-label">Number</label>
+            <input type="text" class="form-control @error('number') is-invalid @enderror" id="number" name="number" value="{{ old('number')}}">
             {{-- da aggiungere per avere il messaggio di errore nel singolo input --}}
 
             <div class="invalid-feedback">
-                @error('title') {{ $message }} @enderror
+                @error('number') {{ $message }} @enderror
             </div>
         </div>
 
         <div class="mb-3">
             <label for="title" class="form-label">Paid</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('paid')}}">
+            <input type="paid" class="form-control @error('paid') is-invalid @enderror" id="paid" name="paid" value="{{ old('paid')}}">
             {{-- da aggiungere per avere il messaggio di errore nel singolo input --}}
 
             <div class="invalid-feedback">
-                @error('title') {{ $message }} @enderror
+                @error('paid') {{ $message }} @enderror
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="thumb" class="form-label">Buyer name</label>
-            <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{ old('buyer_name')}}">
+            <label for="buyer_name" class="form-label">Buyer name</label>
+            <input type="text" class="form-control @error('buyer_name') is-invalid @enderror" id="buyer_name" name="buyer_name" value="{{ old('buyer_name')}}">
             <div class="invalid-feedback">
-                @error('thumb') {{ $message }} @enderror
+                @error('buyer_name') {{ $message }} @enderror
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="type" class="form-label">Buyer Surname</label>
-            <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type" value="{{ old('buyer_surname')}}">
+            <label for="buyer_surname" class="form-label">Buyer Surname</label>
+            <input type="text" class="form-control @error('buyer_surname') is-invalid @enderror" id="buyer_surname" name="buyer_surname" value="{{ old('buyer_surname')}}">
             <div class="invalid-feedback">
-                @error('type') {{ $message }} @enderror
+                @error('buyer_surname') {{ $message }} @enderror
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="series" class="form-label">Buyer Street</label>
-            <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" value="{{ old('buyer_street')}}">
+            <label for="buyer_street" class="form-label">Buyer Street</label>
+            <input type="text" class="form-control @error('buyer_street') is-invalid @enderror" id="buyer_street" name="buyer_street" value="{{ old('buyer_street')}}">
             <div class="invalid-feedback">
-                @error('series') {{ $message }} @enderror
+                @error('buyer_street') {{ $message }} @enderror
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="price" class="form-label">Issue Date</label>
-            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('issue_date')}}">
+            <label for="issue_date" class="form-label">Issue Date</label>
+            <input type="text" class="form-control @error('issue_date') is-invalid @enderror" id="issue_date" name="issue_date" value="{{ old('issue_date')}}">
             <div class="invalid-feedback">
-                @error('price') {{ $message }} @enderror
+                @error('issue_date') {{ $message }} @enderror
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="sale_date" class="form-label">Collection Date</label>
-            <input type="date" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" value="{{ old('collection_date')}}">
+            <label for="collection_date" class="form-label">Collection Date</label>
+            <input type="date" class="form-control @error('collection_date') is-invalid @enderror" id="collection_date" name="collection_date" value="{{ old('collection_date')}}">
             <div class="invalid-feedback">
-                @error('sale_date') {{ $message }} @enderror
+                @error('collection_date') {{ $message }} @enderror
             </div>
         </div>
 
         <div class="mb-3">
-            <label for="sale_date" class="form-label">Amount</label>
-            <input type="date" class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" value="{{ old('amount')}}">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="date" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount" value="{{ old('amount')}}">
             <div class="invalid-feedback">
-                @error('sale_date') {{ $message }} @enderror
+                @error('amount') {{ $message }} @enderror
             </div>
         </div>
 
