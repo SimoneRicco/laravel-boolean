@@ -20,4 +20,7 @@ use App\Http\Controllers\Guest\PageController;
 // });
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/invoices/trashed', [InvoiceController::class, 'trashed'])->name('invoices.trashed');
+Route::post('/invoices/{invoice}/restore', [InvoiceController::class, 'restore'])->name('invoices.restore');
+Route::delete('/invoices/{invoice}/harddelete', [InvoiceController::class, 'harddelete'])->name('invoices.harddelete');
 Route::resource('invoices', InvoiceController::class);
