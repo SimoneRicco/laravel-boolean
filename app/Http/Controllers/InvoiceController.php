@@ -24,7 +24,10 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        $invoices = Invoice::paginate(10);
+        //
+        $invoices = Invoice::paginate(6);
+        // $comics = Comic::all();  // SELECT * FROM `comics`
+        // dd($comics)
         return view('invoices.index', compact('invoices'));
     }
 
@@ -35,7 +38,7 @@ class InvoiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('invoices.create');
     }
 
     /**
@@ -46,6 +49,26 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validation);
+
+        $data = $request->all(); //estrae i dati inseriti nel form e li inserisce in un array associativo
+
+        // salvare i dati nel database
+
+        $newInvoice = new Invoice();
+
+        $newInvoice->number = $data['number'];
+        $newInvoice->paid = $data['paid'];
+        $newInvoice->issue_date = $data['issue_date'];
+        $newInvoice->collection_date = $data['collection_date'];
+        $newInvoice->buyer_name = $data['buyer_name'];
+        $newInvoice->buyer_surname = $data['buyer_surname'];
+        $newInvoice->buyer_street = $data['buyer_street'];
+        $newInvoice->amount = $data['amount'];
+
+        $newInvoice->save();
+
+        return redirect()->route('invoices.show', ['invoice' => $newInvoice->id]);
     }
 
     /**
@@ -54,9 +77,10 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Invoice $invoice)
     {
         //
+        return view('invices.show', compact('invoice'));
     }
 
     /**
@@ -65,9 +89,10 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Invoice $invoice)
     {
         //
+        return view('invoices.edit', compact('invoice'));
     }
 
     /**
@@ -77,9 +102,28 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Invoice $invoice)
     {
         //
+        $request->validate($this->validation);
+
+        $data = $request->all();
+
+
+        //aggiornare i dati nel database
+
+        $invoice->number = $data['number'];
+        $invoice->paid = $data['paid'];
+        $invoice->issue_date = $data['issue_date'];
+        $invoice->collection_date = $data['collection_date'];
+        $invoice->buyer_name = $data['buyer_name'];
+        $invoice->buyer_surname = $data['buyer_surname'];
+        $invoice->buyer_street = $data['buyer_street'];
+        $invoice->amount = $data['amount'];
+
+        $invoice->update();
+
+        return to_route('invoices.show', ['comic' => $invoice->id]);
     }
 
     /**
@@ -88,8 +132,9 @@ class InvoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Invoice $invoice)
     {
-        //
+        $invoice->delete();
+        return to_route('invoices.index')->with('delete_success', $invoice);
     }
 }
