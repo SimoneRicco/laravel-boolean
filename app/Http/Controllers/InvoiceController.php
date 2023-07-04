@@ -149,7 +149,6 @@ class InvoiceController extends Controller
 
     public function trashed()
     {
-        // $comics = Comic::all(); // SELECT * FROM `comics`
         $trashedInvoices = Invoice::onlyTrashed()->paginate(6);
 
         return view('invoices.trashed', compact('trashedInvoices'));

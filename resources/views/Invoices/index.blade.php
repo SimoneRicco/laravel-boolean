@@ -30,6 +30,13 @@
           <td>{{$invoice->amount}} $</td>
           <td><a href="{{route('invoices.show', ['invoice' => $invoice->id])}}" class="btn btn-primary">Mostra</a></td>
           <td><a href="{{route('invoices.edit', ['invoice' => $invoice->id])}}" class="btn btn-warning">Edit</a></td>
+          <td>
+            <form class="d-inline-block" method="POST" action="{{ route('invoices.destroy', ['invoice' => $invoice->id]) }}">
+              @csrf
+              @method('delete')
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </td>
         </tr>
       @endforeach
     </tbody>
