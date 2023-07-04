@@ -12,8 +12,9 @@
         <th scope="col">Buyer surname</th>
         <th scope="col">Buyer street</th>
         <th scope="col">Amount</th>
-        <th scope="col">Dettagli</th>
+        <th scope="col">Details</th>
         <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     
