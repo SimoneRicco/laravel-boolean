@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('buyer_surname', 50);
             $table->string('buyer_street', 100);
             $table->decimal('amount');
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
