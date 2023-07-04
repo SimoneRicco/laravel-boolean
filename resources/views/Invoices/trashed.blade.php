@@ -27,8 +27,6 @@
               <td>{{$invoice->buyer_surname}}</td>
               <td>{{$invoice->buyer_street}}</td>
               <td>{{$invoice->amount}} $</td>
-              <td><a href="{{route('invoices.show', ['invoice' => $invoice->id])}}" class="btn btn-primary">Mostra</a></td>
-              <td><a href="{{route('invoices.edit', ['invoice' => $invoice->id])}}" class="btn btn-warning">Edit</a></td>
               <td>
                 <form class="d-inline-block" method="POST" action="{{ route('invoices.harddelete', ['invoice' => $invoice->id]) }}">
                     @csrf
