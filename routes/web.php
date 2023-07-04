@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\Guest\InvoiceController;
 use App\Http\Controllers\Guest\PageController;
 
 /*
