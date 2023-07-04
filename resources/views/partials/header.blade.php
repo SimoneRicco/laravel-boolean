@@ -9,6 +9,7 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{ route('invoices.index')}}">Home</a>
+
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('invoices.create')}}">New</a>

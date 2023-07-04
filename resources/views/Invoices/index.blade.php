@@ -1,33 +1,39 @@
 @extends('layout.base')
 @section('content')
-    {{-- Link per Paginator {{ $users->links() }} --}}
+    
 
-{{-- @foreach($invoices as $invoice) --}}
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">id</th>
+        <th scope="col">Number</th>
         <th scope="col">Paid</th>
-        <th scope="col">Issue_date</th>
-        <th scope="col">Collection_date</th>
-        <th scope="col">Buyer_name</th>
-        <th scope="col">Buyer_surname</th>
-        <th scope="col">Buyer_street</th>
+        <th scope="col">Issue date</th>
+        <th scope="col">Collection date</th>
+        <th scope="col">Buyer name</th>
+        <th scope="col">Buyer surname</th>
+        <th scope="col">Buyer street</th>
         <th scope="col">Amount</th>
+        <th scope="col">Dettagli</th>
       </tr>
     </thead>
+    
     <tbody>
+        @foreach($invoices as $invoice)
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
+        <th scope="row">{{$invoice->number}}</th>
+        <td>{{$invoice->paid ? 'yes' : 'no'}}</td>
+        <td>{{$invoice->issue_date}}</td>
+        <td>{{$invoice->collection_date}}</td>
+        <td>{{$invoice->buyer_name}}</td>
+        <td>{{$invoice->buyer_surname}}</td>
+        <td>{{$invoice->buyer_street}}</td>
+        <td>{{$invoice->amount}} $</td>
+        <td><a href="{{route('invoices.show', ['invoice' => $invoice->id])}}" class="btn btn-primary">Mostra</a></td>
       </tr>
+      @endforeach
     </tbody>
   </table>
-  {{-- @endforeach --}}
+  
+
+  {{ $invoices->links() }}
 @endsection
