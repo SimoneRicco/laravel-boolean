@@ -48,7 +48,7 @@
 
         <div class="mb-3">
             <label for="issue_date" class="form-label">Issue Date</label>
-            <input type="text" class="form-control @error('issue_date') is-invalid @enderror" id="issue_date" name="issue_date" value="{{ old('issue_date')}}">
+            <input type="date" class="form-control @error('issue_date') is-invalid @enderror" id="issue_date" name="issue_date" value="{{ old('issue_date')}}">
             <div class="invalid-feedback">
                 @error('issue_date') {{ $message }} @enderror
             </div>
