@@ -1,6 +1,6 @@
 @extends('layout.base')
 @section('content')
-    <div class="modal" tabindex="-1">
+    <div id="myModal" class="modal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -46,6 +46,19 @@
               <td>{{$invoice->amount}} $</td>
               <td><a href="{{route('invoices.show', ['invoice' => $invoice->id])}}" class="btn btn-primary">Mostra</a></td>
               <td><a href="{{route('invoices.edit', ['invoice' => $invoice->id])}}" class="btn btn-warning">Edit</a></td>
+              <td>
+                <form class="d-inline-block" method="POST" action="{{ route('invoices.harddelete', ['invoice' => $invoice->id]) }}">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger hard_delete">Hard Delete</button>
+                </form>
+              </td>
+              <td>
+                <form class="d-inline-block" method="POST" action="{{ route('invoices.restore', ['invoice' => $invoice->id]) }}">
+                    @csrf
+                    <button class="btn btn-warning">Restore</button>
+                </form>
+              </td>
             </tr>
           @endforeach
         </tbody>
