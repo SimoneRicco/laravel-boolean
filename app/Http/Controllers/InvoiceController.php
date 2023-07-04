@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 class InvoiceController extends Controller
 {
     private $validation = [
-        //         Colonna        Tipo
-        // id             INT
-        // date           DATE         // Il ricordo testuale dell'Esperienza
-        // title          VARCHAR[50]  // Il titolo dell'Esperienza
-        // text           TEXT         // Il ricordo testuale dell'Esperienza
-        // image          VARCHAR[500] // Un'immagine associata all'Esperienza
-        // country        VARCHAR[2]   // La nazione in cui è avvenuta l'Esperienza
-        // address        VARCHAR[150] // L'indirizzo presso cui è avvenuta l'Esperienza
+        'number' => 'integer',
+        'paid' => 'boolean',
+        'issue_date' => 'date',
+        'collection_date' => 'date',
+        'buyer_name' => 'string|50',
+        'buyer_surname' => 'string|50',
+        'buyer_street' => 'string|100',
+        'amount' => 'decimal',
     ];
     /**
      * Display a listing of the resource.
