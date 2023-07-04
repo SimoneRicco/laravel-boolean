@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel Invoices</title>
     @vite('resources/js/app.js')
-
 </head>
 <body>
     @include('partials.header')
     <main>
-        @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
     </main>
 </body>
 </html>

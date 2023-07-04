@@ -24,7 +24,7 @@ class InvoicesTableSeeder extends Seeder
                 'issue_date'      => $faker->date(),
                 'collection_date' => $faker->date(),
                 'buyer_name'      => $faker->firstName(50),
-                'buyer_surname'   => $faker->lastName(100),
+                'buyer_surname'   => $faker->lastName(50),
                 'buyer_street'    => $faker->streetName(),
                 'amount'          => $faker->randomFloat(1, 20, 30),
             ]);
