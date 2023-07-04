@@ -6,13 +6,6 @@ import.meta.glob(["../img/**"]);
 
 import * as bootstrap from "bootstrap";
 
-const myModal = document.getElementById("myModal");
-const myInput = document.getElementById("myInput");
-
-myModal.addEventListener("shown.bs.modal", () => {
-    myInput.focus();
-});
-
 // Seleziono tutti i bottoni di Elimina
 let btnDelete = document.querySelectorAll(".hard_delete");
 
