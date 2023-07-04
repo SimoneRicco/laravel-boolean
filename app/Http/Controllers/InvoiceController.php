@@ -137,4 +137,29 @@ class InvoiceController extends Controller
         $invoice->delete();
         return to_route('invoices.index')->with('delete_success', $invoice);
     }
+
+    public function restore($id)
+    {
+        Invoice::withTrashed()->where('id', $id)->restore();
+
+        $invoice = Invoice::find($id);
+
+        return to_route('invoices.index')->with('restore_success', $invoice);
+    }
+
+    public function trashed()
+    {
+        // $comics = Comic::all(); // SELECT * FROM `comics`
+        $trashedInvoices = Invoice::onlyTrashed()->paginate(6);
+
+        return view('invoices.trashed', compact('trashedInvoices'));
+    }
+
+    public function harddelete($id)
+    {
+        $invoice = Invoice::withTrashed()->find($id);
+        $invoice->forceDelete();
+
+        return to_route('invoices.trashed')->with('delete_success', $invoice);
+    }
 }
