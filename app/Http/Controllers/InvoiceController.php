@@ -117,7 +117,7 @@ class InvoiceController extends Controller
         $invoice->issue_date = $data['issue_date'];
         $invoice->collection_date = $data['collection_date'];
         $invoice->buyer_name = $data['buyer_name'];
-        $invoice->buyer_surname = $data['buyer_name'];
+        $invoice->buyer_surname = $data['buyer_surname'];
         $invoice->buyer_street = $data['buyer_street'];
         $invoice->amount = $data['amount'];
 
