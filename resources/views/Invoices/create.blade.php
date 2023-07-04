@@ -2,14 +2,11 @@
 @section('content')
 <h1>Create a new Invoice</h1>
 
-{{-- il metodo old() fa in modo che se si verifica un errore in un qualsiasi input il form non venga ripulito --}}
-    <form method="POST" action="{{ route('comics.update', ['comic' => $comic->id]) }}">
+    <form method="POST" action="{{ route('invoices.update', ['invoice' => $invoice->id]) }}">
         @csrf
-        @method('PUT')
         <div class="mb-3">
             <label for="number" class="form-label">Number</label>
             <input type="text" class="form-control @error('number') is-invalid @enderror" id="number" name="number" value="{{ old('number')}}">
-            {{-- da aggiungere per avere il messaggio di errore nel singolo input --}}
 
             <div class="invalid-feedback">
                 @error('number') {{ $message }} @enderror
@@ -19,7 +16,6 @@
         <div class="mb-3">
             <label for="title" class="form-label">Paid</label>
             <input type="paid" class="form-control @error('paid') is-invalid @enderror" id="paid" name="paid" value="{{ old('paid')}}">
-            {{-- da aggiungere per avere il messaggio di errore nel singolo input --}}
 
             <div class="invalid-feedback">
                 @error('paid') {{ $message }} @enderror
