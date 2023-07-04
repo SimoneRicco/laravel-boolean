@@ -25,7 +25,7 @@ class InvoiceController extends Controller
     public function index()
     {
         //
-        $invoices = Invoice::paginate(6);
+        $invoices = Invoice::paginate(20);
         // $comics = Comic::all();  // SELECT * FROM `comics`
         // dd($comics)
         return view('invoices.index', compact('invoices'));
@@ -80,7 +80,7 @@ class InvoiceController extends Controller
     public function show(Invoice $invoice)
     {
         //
-        return view('invices.show', compact('invoice'));
+        return view('invoices.show', compact('invoice'));
     }
 
     /**
