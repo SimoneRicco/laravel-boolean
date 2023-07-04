@@ -33,7 +33,7 @@
 
         <div class="mb-3">
             <label for="buyer_surname" class="form-label">Buyer Surname</label>
-            <input type="text" class="form-control @error('buyer_surname') is-invalid @enderror" id="buyer_surname" name="type" value="{{ old('buyer_surname', $invoice->buyer_surname)}}">
+            <input type="text" class="form-control @error('buyer_surname') is-invalid @enderror" id="buyer_surname" name="buyer_surname" value="{{ old('buyer_surname', $invoice->buyer_surname)}}">
             <div class="invalid-feedback">
                 @error('buyer_surname') {{ $message }} @enderror
             </div>
@@ -65,7 +65,7 @@
 
         <div class="mb-3">
             <label for="amount" class="form-label">Amount</label>
-            <input type="date" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount" value="{{ old('amount', $invoice->amount)}}">
+            <input type="text" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount" value="{{ old('amount', $invoice->amount)}}">
             <div class="invalid-feedback">
                 @error('amount') {{ $message }} @enderror
             </div>

@@ -12,10 +12,10 @@ class InvoiceController extends Controller
         'paid' => 'boolean',
         'issue_date' => 'date',
         'collection_date' => 'date',
-        'buyer_name' => 'string|50',
-        'buyer_surname' => 'string|50',
-        'buyer_street' => 'string|100',
-        'amount' => 'decimal',
+        'buyer_name' => 'string|max:50',
+        'buyer_surname' => 'string|max:50',
+        'buyer_street' => 'string',
+        'amount' => 'decimal:2',
     ];
     /**
      * Display a listing of the resource.
@@ -117,13 +117,13 @@ class InvoiceController extends Controller
         $invoice->issue_date = $data['issue_date'];
         $invoice->collection_date = $data['collection_date'];
         $invoice->buyer_name = $data['buyer_name'];
-        $invoice->buyer_surname = $data['buyer_surname'];
+        $invoice->buyer_surname = $data['buyer_name'];
         $invoice->buyer_street = $data['buyer_street'];
         $invoice->amount = $data['amount'];
 
         $invoice->update();
 
-        return to_route('invoices.show', ['comic' => $invoice->id]);
+        return to_route('invoices.show', ['invoice' => $invoice->id]);
     }
 
     /**
