@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -7,7 +8,10 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-        <h1 class="text-center">Ciao da vite</h1>
+        <h1 class="text-center">Le mie fatture</h1>
+        <div class="container text-center py-2">
+            <a class="btn btn-primary" href="/invoices">show the invoices</a>
+        </div>
         {{-- <img src="{{ Vite::asset('resources/img/picsum30.jpg') }}" alt=""> --}}
     </body>
 </html>
