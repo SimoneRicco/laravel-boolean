@@ -2,7 +2,7 @@
 @section('content')
 <h1>Create a new Invoice</h1>
 
-    <form method="POST" action="{{ route('invoices.update', ['invoice' => $invoice->id]) }}">
+    <form method="POST" action="{{ route('invoices.store') }}">
         @csrf
         <div class="mb-3">
             <label for="number" class="form-label">Number</label>
